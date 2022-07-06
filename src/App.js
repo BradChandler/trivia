@@ -7,12 +7,12 @@ import PlayerList from "./pages/PlayerLIst/PlayerList";
 import TriviaGame from "./pages/TriviaGame/TriviaGame";
 
 const routes = [
-  { path: '/', name: 'Home', Component: Home },
-  { path: '/about', name: 'About', Component: About },
-  { path: '/:gameType/player-setup', name: "Add Players", Component: PlayerList }, 
-  { path: '/:gameType/game-setup', name: "Game Setup", Component: GameSetup },
-  { path: '/:gameType/game-setup/custom', name: "Custom Game Setup", Component: CustomGame },
-  { path: '/:gameType/trivia-game', name: "Trivia Game", Component: TriviaGame }
+  { path: '/trivia', name: 'Home', Component: Home },
+  { path: '/trivia/about', name: 'About', Component: About },
+  { path: '/trivia/:gameType/player-setup', name: "Add Players", Component: PlayerList }, 
+  { path: '/trivia/:gameType/game-setup', name: "Game Setup", Component: GameSetup },
+  { path: '/trivia/:gameType/game-setup/custom', name: "Custom Game Setup", Component: CustomGame },
+  { path: '/trivia/:gameType/trivia-game', name: "Trivia Game", Component: TriviaGame }
 ]
 
 function App() {
