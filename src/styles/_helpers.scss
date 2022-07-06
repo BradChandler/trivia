@@ -1,0 +1,321 @@
+/*=====  Font Rules =====*/
+/*=======================*/
+.text__medium {
+  font-weight: 500;
+}
+.text__bold {
+  font-weight: bold;
+}
+.text__normal {
+  font-weight: normal !important;
+}
+.text__thin {
+  font-weight: thinner;
+}
+.text__light {
+  opacity: 0.5;
+}
+.text__strike {
+  text-decoration: line-through;
+}
+.text__underline {
+  text-decoration: underline;
+}
+.text__center {
+  text-align: center;
+}
+.text__right {
+  text-align: right;
+}
+.text__black {
+  color: $black;
+}
+.text__white {
+  color: #fff;
+}
+.text__cool-grey {
+  color: $cool-grey;
+}
+.text__alice-blue {
+  color: $alice-blue;
+}
+.text__maya-blue {
+  color: $maya-blue;
+}
+.text__sea-green {
+  color: $sea-green;
+}
+.text__green {
+  color: $green;
+}
+.text__red {
+  color: $red;
+}
+.text__orange {
+  color: $orange;
+}
+.text__yellow {
+  color: $yellow;
+}
+.text__sm {
+  font-size: $text-sm;
+}
+.text__regular {
+  font-size: $text-regular;
+}
+.text__md {
+  font-size: $text-md;
+}
+.text__lg {
+  font-size: $text-lg;
+}
+.text__xl {
+  font-size: $text-xl;
+}
+
+/*=====  BG Rules =====*/
+/*=====================*/
+.bg__black {
+  background-color: $black;
+}
+.bg__white {
+  background-color: #fff;
+}
+.bg__cool-grey {
+  background-color: $cool-grey;
+}
+.bg__alice-blue {
+  background-color: $alice-blue;
+}
+.bg__maya-blue {
+  background-color: $maya-blue;
+}
+.bg__sea-green {
+  background-color: $sea-green;
+}
+.bg__green {
+  background-color: $green;
+}
+.bg__red {
+  background-color: $red;
+}
+.bg__orange {
+  background-color: $orange;
+}
+
+/*=====  Flex Rules =====*/
+/*=======================*/
+.flex__center {
+  @include flex($just: center, $align: center);
+}
+.flex__between {
+  @include flex($just: space-between, $align: center);
+}
+.flex__around {
+  @include flex($just: space-around, $align: center);
+}
+.flex__left {
+  @include flex($just: flex-start, $align: center);
+}
+.flex__col {
+  flex-direction: column;
+}
+.flex__wrap {
+  flex-wrap: wrap;
+}
+.flex__start {
+  align-items: flex-start;
+}
+.flex__reverse {
+  flex-direction: row-reverse;
+}
+
+/*=====  Grid Rules =====*/
+/*=======================*/
+.grid__one,
+.grid__two,
+.grid__three,
+.grid__four {
+  @include grid(
+    $cols: 1fr,
+    $col-gap: 20px,
+    $row-gap: 20px,
+    $just: center,
+    $align: center
+  );
+}
+.grid__just-null {
+  justify-items: unset;
+}
+.grid__just-left {
+  justify-items: left;
+}
+.grid__just-right {
+  justify-items: right;
+}
+.grid__row-null {
+  grid-row-gap: unset;
+}
+.grid__col-null {
+  grid-column-gap: unset;
+}
+.grid__row-xs {
+  grid-row-gap: $space-xs;
+}
+.grid__row-sm {
+  grid-row-gap: $space-sm;
+}
+.grid__row-md {
+  grid-row-gap: $space-md;
+}
+.grid__row-lg {
+  grid-row-gap: $space-lg;
+}
+.grid__row-xl {
+  grid-row-gap: $space-xl;
+}
+.grid__col-xs {
+  grid-column-gap: $space-xs;
+}
+.grid__col-sm {
+  grid-column-gap: $space-sm;
+}
+.grid__col-md {
+  grid-row-gap: $space-md;
+}
+.grid__col-lg {
+  grid-column-gap: $space-lg;
+}
+.grid__col-xl {
+  grid-column-gap: $space-xl;
+}
+@media (min-width: $md) {
+  .grid__two,
+  .grid__three,
+  .grid__four {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: $lg) {
+  .grid__three,
+  .grid__four {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: $xl) {
+  .grid__four {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/*=====  Space Rules =====*/
+/*========================*/
+.padding__null {
+  padding: unset;
+}
+.padding__left {
+  padding-left: $space-xs;
+}
+.padding__right {
+  padding-right: $space-xs;
+}
+.padding__top {
+  padding-top: $space-xs;
+}
+.padding__bottom {
+  padding-bottom: $space-xs;
+}
+.padding__xxs {
+  padding: $space-xxs 0;
+}
+.padding__xs {
+  padding: $space-xs 0;
+}
+.padding__sm {
+  padding: $space-sm 0;
+}
+.padding__md {
+  padding: $space-md 0;
+}
+.padding__lg {
+  padding: $space-lg 0;
+}
+.padding__xl {
+  padding: $space-xl 0;
+}
+
+.ml-xs {
+  margin-left: $space-xs;
+}
+.mr-xs {
+  margin-right: $space-xs;
+}
+.margin__null {
+  margin: unset;
+}
+.margin__left {
+  margin-left: $space-xs;
+}
+.margin__right {
+  margin-right: $space-xs;
+}
+.margin__top {
+  margin-top: $space-xs;
+}
+.margin__bottom {
+  margin-bottom: $space-xs;
+}
+.margin__xs {
+  margin: $space-xs 0;
+}
+.margin__sm {
+  margin: $space-sm 0;
+}
+.margin__md {
+  margin: $space-md 0;
+}
+.margin__lg {
+  margin: $space-lg 0;
+}
+.margin__xl {
+  margin: $space-xl 0;
+}
+
+/*=====  Fit Rules =====*/
+/*======================*/
+.width__100 {
+  width: 100%;
+}
+.width__fit {
+  width: fit-content;
+}
+.width__max {
+  width: max-content;
+}
+.height__100 {
+  height: 100%;
+}
+.height__vh {
+  min-height: 100vh;
+}
+.height__fit {
+  height: fit-content;
+}
+.height__max {
+  height: max-content;
+}
+
+/*=====  Misc Rules =====*/
+/*=======================*/
+.pointer {
+  cursor: pointer;
+}
+.pos__rel {
+  position: relative;
+}
+.modal {
+  @include pos-abs($pos: fixed, $width: 100vw, $height: 100vh, $z: 2);
+}
+.over__hidden {
+  overflow: hidden;
+}

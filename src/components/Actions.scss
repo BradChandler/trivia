@@ -1,0 +1,27 @@
+@import "../styles/variables.scss";
+.actions {
+  background-color: darken($maya-blue, 10%);
+  box-shadow: 0px 10px 14px 6px $maya-blue;
+  position:sticky;
+  top: 0;
+}
+.action-link, .action-btn {
+  color: darken($cool-grey, 25%);
+  padding: 12px 8px;
+  grid-gap: 8px;
+  transition: background 0.25s ease-in-out;
+}
+
+.action-btn {
+  background: transparent;
+  outline: transparent;
+  border: none;
+  cursor: pointer;
+}
+:where(.action-link, .action-btn):hover {
+  background: $maya-blue;
+}
+.action-level {
+  color: $alice-blue;
+  opacity: 0.8;
+}

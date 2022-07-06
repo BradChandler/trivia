@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: $text-lg;
+  color: $alice-blue;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: $text-md;
+  color: $cool-grey;
+  font-weight: 500;
+}
+h3 {
+  font-size: $text-md;
+  color: $cool-grey;
+}
+
+ul, ol {
+  list-style-position: inside;
+}
+
+ul {
+  list-style: none;
+}
+
+a, a:hover, a:focus, a:visited {
+  color: darken($cool-grey, 25%);
+  text-decoration: none;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px 12px;
+  border: none;
+  border-bottom: 2px solid darken($cool-grey, 25%);
+  background-color: darken($alice-blue, 5%);
+  transition: background-color 0.15s ease-in-out;
+  &:focus {
+    outline: 1px solid transparent;
+    background-color: lighten($alice-blue, 50%);
+  }
+}
+textarea {
+  resize: none;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  &:focus {
+    outline: transparent;
+  }
+  &:checked {
+    background-color: $cool-grey;
+  }
+}
+@media (min-width: $sm) {
+  input,
+select,
+textarea {
+  width: 400px;
+}
+}

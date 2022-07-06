@@ -1,0 +1,25 @@
+
+.btn {
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 4px;
+  font-weight: 600;
+  @include flex($just: center, $align: center);
+}
+.btn__md {
+  padding: 20px 32px;
+}
+.btn__cool-grey {
+  background-color: $alice-blue;
+  border: 2px solid $cool-grey;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    background-color: $cool-grey;
+    color: $alice-blue;
+  }
+}
+.btn__warn {
+  background-color: transparent;
+  color: $red;
+  transition: all 0.25s ease-in-out;
+}

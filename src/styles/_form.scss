@@ -1,0 +1,81 @@
+form {
+  width: 100%;
+  max-width: 440px;
+}
+form label {
+  position: relative;
+  display: grid;
+  grid-row-gap: 6px;
+  font-weight: 500;
+}
+.form-toggle {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 6px;
+  border: 1px solid $alice-blue;
+  border-radius: 4px;
+  background: $alice-blue;
+  width: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  justify-items: center;
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+  }
+  span {
+
+  }
+}
+.form-toggle--slide {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  transition: all 0.25s ease-in-out;
+}
+.form-toggle--on {
+  .form-toggle--slide {
+    transform: translateX(-50%);
+    background: $green;
+  }
+}
+.form-toggle--off {
+  .form-toggle--slide {
+    transform: translateX(50%);
+    background: $red;
+  }
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-top: 8px;
+  // width: 200px;
+  // height: 7px;
+  border-radius: 4px;
+  padding: 0;
+  border: none;
+  background: $alice-blue;
+  // background-image: linear-gradient(#ff4500, #ff4500);
+  // background-size: 70% 100%;
+  // background-repeat: no-repeat;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: darken($cool-grey, 25%);
+  cursor: ew-resize;
+}
+
+input[type=range]::-webkit-slider-runnable-track  {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  height: 4px;
+}

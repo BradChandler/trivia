@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, useLocation } from "react-router-dom";
+import About from "./pages/About/About";
+import CustomGame from "./pages/CustomGame/CustomGame";
+import GameSetup from "./pages/GameSetup/GameSetup";
+import Home from "./pages/Home/Home";
+import PlayerList from "./pages/PlayerLIst/PlayerList";
+import TriviaGame from "./pages/TriviaGame/TriviaGame";
+
+const routes = [
+  { path: '/', name: 'Home', Component: Home },
+  { path: '/about', name: 'About', Component: About },
+  { path: '/:gameType/player-setup', name: "Add Players", Component: PlayerList }, 
+  { path: '/:gameType/game-setup', name: "Game Setup", Component: GameSetup },
+  { path: '/:gameType/game-setup/custom', name: "Custom Game Setup", Component: CustomGame },
+  { path: '/:gameType/trivia-game', name: "Trivia Game", Component: TriviaGame }
+]
 
 function App() {
+  let location = useLocation();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes location={location}>
+        {routes.map(({path, Component}) => <Route path={path} element={<Component />} key={path} exact/>)}
+      </Routes>
     </div>
   );
 }

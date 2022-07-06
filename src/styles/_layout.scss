@@ -1,0 +1,58 @@
+.App {
+  background-color: $maya-blue;
+  min-height: 100vh;
+  position: relative;
+}
+.page {
+  position: absolute;
+}
+.page-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+.page-enter {
+  opacity: 0;
+  // transform: translateX(100%);
+}
+.page-enter-active {
+  opacity: 1;
+  // transform: translateX(0%);
+  transition: all .5s ease-in;
+}
+.page-exit {
+  opacity: 1;
+  // transform: translateX(0%);
+}
+.page-exit-active {
+  opacity: 0;
+  // transform: translateX(-100%);
+  transition: all .5s ease-out;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 0 16px;
+  margin: auto;
+}
+
+@media (min-width: $sm) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: $md) {
+  .container {
+    max-width: 680px;
+  }
+}
+@media (min-width: $lg) {
+  .container {
+    max-width: 800px;
+  }
+}
+@media (min-width: $xl) {
+  .container {
+    max-width: 980px;
+  }
+}
