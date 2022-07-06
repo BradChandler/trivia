@@ -12,7 +12,7 @@ $timer-size: 120px;
 }
 
 .base-timer__path-elapsed {
-  stroke-width: 7px;
+  stroke-width: 6px;
   stroke: $alice-blue;
 }
 .base-timer__label {
@@ -30,8 +30,8 @@ $timer-size: 120px;
   transform: scaleX(-1);
 }
 .base-timer__path-remaining {
-  stroke-width: 7px;
-  stroke-linecap: round;
+  stroke-width: 6px;
+  stroke-linecap: square;
   transform: rotate(90deg);
   transform-origin: center;
   transition: 1s linear all;

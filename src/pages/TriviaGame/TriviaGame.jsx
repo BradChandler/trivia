@@ -13,20 +13,11 @@ const TriviaGame = () => {
   const { players, incrementPlayerScore } = useContext(PlayerContext)
   const { game } = useContext(GameContext);
 
-  //for confirming next player is ready
   const [readyState, setReadyState] = useState(false);
-  //for tracking which player should be answering
   const [currentPlayer, setCurrentPlayer] = useState(0)
-  //for tracking which turn, once reach game.questionCount * player.length, the game is over
-  const [currentTurn, setCurrentTurn] = useState(0);
-
-  useEffect(() => {
-    if (!players || players.length <= 0 || !game || Object.keys(game).length <= 0) {
-      return navigate(`/${gameType}/player-setup`)
-    }
-  }, [game, players, gameType, navigate])
-
-  const actionConfig = [
+  const [currentQuestionNum, setCurrentQuestionNum] = useState(1);
+  const [currentQuestion, setCurrentQuestion] = useState();
+  const [actionConfig, setActionConfig] = useState([
     {
       type: "home", 
       text: "Quit Game", 
@@ -35,31 +26,66 @@ const TriviaGame = () => {
     },
     {
       type: "level", 
-      text: "1 / 10"
-    },
-    // {
-    //   type: "action", 
-    //   text: "Submit Answer", 
-    //   name: "Submit Answer", 
-    //   // callback: () => handleSubmit()
-    // }, 
-  ]
+      text: `${currentQuestionNum} / ${game.questionCount}`
+    }
+  ])
 
-  const updateActionConfig = () => {
-    actionConfig[1] = {
+  useEffect(() => {
+    if (!players || players.length <= 0 || !game || Object.keys(game).length <= 0) {
+      return navigate(`/${gameType}/player-setup`)
+    }
+  }, [game, players, gameType, navigate])
+
+  const handleUpdateCurrentQuestion = (content) => setCurrentQuestion(content)
+
+  const handleFinishQuestion = (shouldIncrement) => {
+    const update = {
       type: "action", 
       text: "Next Question", 
       name: "Next Question", 
-      // callback: () => handleSubmit()
+      callback: () => handleNextQuestion()
     }
+    const updates = JSON.parse(JSON.stringify(actionConfig));
+    updates[1] = update
+    setActionConfig(updates)
+    if (shouldIncrement) {
+      incrementPlayerScore(players[currentPlayer].id)
+    }
+  }
+
+  const handleNextQuestion = () => {
+    let update;
+    if (players[currentPlayer + 1]) {
+      setCurrentPlayer(prevState => prevState + 1);
+      update = {
+        type: "level", 
+        text: `${currentQuestionNum} / ${game.questionCount}`
+      }
+    } else {
+      if (currentQuestionNum === game.questionCount) {
+        //trigger end of game
+      } else {
+        setCurrentPlayer(0)
+        setCurrentQuestionNum(prevState => currentQuestionNum + 1);
+        update = {
+          type: "level", 
+          text: `${currentQuestionNum + 1} / ${game.questionCount}`
+        }
+      }
+    }
+    setReadyState(false);
+    setCurrentQuestion(null);
+    const updates = JSON.parse(JSON.stringify(actionConfig));
+    updates[1] = update
+    setActionConfig(updates)
   }
 
   return (
     <section className="height__vh page-stack">
       <Actions config={actionConfig} />
       <Container classNames="flex flex__col flex__left">
-        { !readyState && <ReadyStart {...{...players[currentPlayer]}} callback={() => setReadyState(true)}/> }
-        { readyState && <Question game={game} /> }
+        { !readyState && <ReadyStart {...{...players[currentPlayer]}} game={game} question={currentQuestion} setQuestion={(val) => handleUpdateCurrentQuestion(val)} setReady={() => setReadyState(true)}/> }
+        { readyState && <Question game={game} question={currentQuestion} name={players[currentPlayer].name} questionNum={currentQuestionNum} finishQuestion={(bool) => handleFinishQuestion(bool)}  /> }
       </Container>
     </section>
   );

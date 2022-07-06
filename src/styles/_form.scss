@@ -7,6 +7,12 @@ form label {
   display: grid;
   grid-row-gap: 6px;
   font-weight: 500;
+  width: 94%;
+}
+@media (min-width: $sm) {
+  form label {
+    width: 100%;
+  }
 }
 .form-toggle {
   position: relative;

@@ -132,66 +132,66 @@ export const openTBCategories = [
   },
   {
     text: "Entertainment: Comics", 
-    value: 30
+    value: 29
   },
   {
     text: "Entertainment: Japanese Anime & Manga", 
-    value: 32
-  },
-  {
-    text: "Entertainment: Cartoon & Animations", 
-    value: 17
-  },
-  {
-    text: "Science & Nature", 
-    value: 18
-  },
-  {
-    text: "Science: Computers", 
-    value: 19
-  },
-  {
-    text: "Science: Mathematics", 
-    value: 20
-  },
-  {
-    text: "Science: Gadgets", 
     value: 31
   },
   {
+    text: "Entertainment: Cartoon & Animations", 
+    value: 32
+  },
+  {
+    text: "Science & Nature", 
+    value: 17
+  },
+  {
+    text: "Science: Computers", 
+    value: 18
+  },
+  {
+    text: "Science: Mathematics", 
+    value: 19
+  },
+  {
+    text: "Science: Gadgets", 
+    value: 30
+  },
+  {
     text: "Mythology", 
-    value: 21
+    value: 20
   },
   {
     text: "Sports", 
-    value: 22
+    value: 21
   },
   {
     text: "Geography", 
-    value: 23
+    value: 22
   },
   {
     text: "History", 
-    value: 24
+    value: 23
   },
   {
     text: "Politics", 
-    value: 25
+    value: 24
   },
   {
     text: "Art", 
-    value: 26
+    value: 25
   },
   {
     text: "Celebrities", 
-    value: 27
+    value: 26
   },
   {
     text: "Animals", 
-    value: 28
+    value: 27
   },
   {
     text: "Vehicles", 
-    value: 29
+    value: 28
   },
 ]

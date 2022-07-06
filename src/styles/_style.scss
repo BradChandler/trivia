@@ -65,10 +65,3 @@ input[type="radio"] {
     background-color: $cool-grey;
   }
 }
-@media (min-width: $sm) {
-  input,
-select,
-textarea {
-  width: 400px;
-}
-}

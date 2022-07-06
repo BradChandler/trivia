@@ -23,3 +23,9 @@
   color: $red;
   transition: all 0.25s ease-in-out;
 }
+.btn:disabled {
+  cursor: wait;
+  &:hover {
+    background-color: darken($alice-blue, 10%);
+  }
+}
