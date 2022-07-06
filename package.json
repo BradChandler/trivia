@@ -2,7 +2,7 @@
   "name": "trivia",
   "version": "0.1.0",
   "gh-pages-docs": "https://github.com/gitname/react-gh-pages",
-  "homepage": "https://BradChandler.github.io/trivia",
+  "homepage": "https://BradChandler.github.io/trivia/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
