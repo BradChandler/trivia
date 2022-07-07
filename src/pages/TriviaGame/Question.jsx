@@ -82,11 +82,16 @@ const Question = ({ game, question, name, questionNum, finishQuestion }) => {
         </div>
       }
       </div>
-      <p className="flex flex__center grid__col-xs text__light text__medium">
-        <span>{ question.category }</span>
-        |
-        <span className="text__upper">{ question.difficulty }</span>
-      </p>
+      <ul className="grid__one grid__row-xs grid__just-null">
+          <li className="flex flex__center grid__col-xs text__sea-green">
+            <span className="text__medium">Category:</span>
+            { question.category }
+          </li>
+          <li className="flex flex__center grid__col-xs text__sea-green">
+            <span className="text__medium">Difficulty:</span>
+            { question.difficulty }
+          </li>
+        </ul>
       <p className="text__center question-text">
         { decode(question.question) }
       </p>
