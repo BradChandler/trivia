@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import "./Timer.scss";
 
 const FULL_DASH_ARRAY = 283;
-const ALERT_THRESHOLD = 4;
+const ALERT_THRESHOLD = 5;
 
 
 const Timer = ({ time, totalTime }) => {

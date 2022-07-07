@@ -3,7 +3,8 @@ import React, { useCallback, useReducer } from 'react';
 const PlayerContext = React.createContext({
   players: [], 
   addPlayers: (playerList) => {}, 
-  incrementPlayerScore: (id) => {}, 
+  incrementPlayerScore: (id) => {},
+  resetPlayerScores: () => {},
   resetPlayers: () => {}
 });
 
@@ -19,6 +20,11 @@ const playerReducer = (state, action) => {
         }
         return player;
       })
+    }
+    case 'RESET_PLAYER_SCORES': {
+      return state.map(player => {
+        return {...player, score: 0};
+      });
     }
     case 'RESET_PLAYERS': {
       return [];
@@ -41,6 +47,10 @@ export const PlayerProvider = ({ children }) => {
     dispatch({ type: "INCREMENT_PLAYER_SCORE", payload: id });
   }, [])
 
+  const resetPlayerScoresHandler = useCallback(() => {
+    dispatch({ type: 'RESET_PLAYER_SCORES' });
+  })
+
   const resetPlayersHandler = useCallback(() => {
     dispatch({ type: "RESET_PLAYERS" })
   }, []);
@@ -50,6 +60,7 @@ export const PlayerProvider = ({ children }) => {
       players, 
       addPlayers: addPlayersHandler, 
       incrementPlayerScore: incrementPlayerScoreHandler,
+      resetPlayerScores: resetPlayerScoresHandler,
       resetPlayers: resetPlayersHandler
     }}>
       {children}

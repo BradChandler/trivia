@@ -39,11 +39,21 @@ const TriviaGame = () => {
   const handleUpdateCurrentQuestion = (content) => setCurrentQuestion(content)
 
   const handleFinishQuestion = (shouldIncrement) => {
-    const update = {
-      type: "action", 
-      text: "Next Question", 
-      name: "Next Question", 
-      callback: () => handleNextQuestion()
+    let update;
+    if (currentQuestionNum === game.questionCount) {
+      update = {
+        type: "link", 
+        text: "Finish Game", 
+        link: `/${gameType}/trivia-game/results`, 
+        name: "Finish Game"
+      }
+    } else {
+      update = {
+        type: "action", 
+        text: "Next Question", 
+        name: "Next Question", 
+        callback: () => handleNextQuestion()
+      }
     }
     const updates = JSON.parse(JSON.stringify(actionConfig));
     updates[1] = update
@@ -62,9 +72,7 @@ const TriviaGame = () => {
         text: `${currentQuestionNum} / ${game.questionCount}`
       }
     } else {
-      if (currentQuestionNum === game.questionCount) {
-        //trigger end of game
-      } else {
+      if (currentQuestionNum < game.questionCount) {
         setCurrentPlayer(0)
         setCurrentQuestionNum(prevState => currentQuestionNum + 1);
         update = {

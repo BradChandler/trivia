@@ -69,12 +69,13 @@ const CustomGame = () => {
               Timer Length
               <span className="text__sm ml-xs">{rules['timerLength'] / 1000}s</span>
             </span>
-            <input type="range" min="5000" max="30000" step="1000" value={rules['timerLength']} onChange={(e) => updateRule('timerLength', parseInt(e.target.value))}/>
+            <input type="range" min="10000" max="30000" step="1000" value={rules['timerLength']} onChange={(e) => updateRule('timerLength', parseInt(e.target.value))}/>
           </label>
           }
           <label>
             Question Count
             <select value={rules['questionCount']} onChange={(e) => {updateRule('questionCount', parseInt(e.target.value))}}>
+              <option value={5}>5 Questions</option>
               <option value={10}>10 Questions</option>
               <option value={15}>15 Questions</option>
               <option value={20}>20 Questions</option>

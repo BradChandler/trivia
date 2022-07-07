@@ -34,7 +34,7 @@ const About = () => {
       <Container classNames="flex flex__col flex__left">
         <section className="grid__one grid__row-null">
           <img src={logo} width="240px" height="240px" alt="Trivia logo" />
-          <section className="grid__one grid__row-md page-about--cards padding__md">
+          <section className="grid__one grid__row-md padding__md">
             {
               aboutContent.map((item, index) => (
                 <div className="card grid__one grid__row-xs" key={index}>

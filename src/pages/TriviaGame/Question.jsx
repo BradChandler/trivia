@@ -69,7 +69,7 @@ const Question = ({ game, question, name, questionNum, finishQuestion }) => {
           ? <Timer time={second} totalTime={game.timerLength / 1000}/>
           : <div className="grid__one grid__row-xs"> 
               <FontAwesomeIcon icon={isCorrect ? faCheckCircle : faTimesCircle} size="4x" className={`${isCorrect ? 'text__green' : 'text__red'}`}/>
-              <p className={`text__bold ${isCorrect ? 'text__green' : 'text__red'}`}>{ isCorrect ? 'Correct!' : 'Wrong' }</p>
+              <p className={`text__bold text__md ${isCorrect ? 'text__green' : 'text__red'}`}>{ isCorrect ? 'Correct!' : 'Wrong' }</p>
             </div>
         }
         </div>
@@ -83,7 +83,7 @@ const Question = ({ game, question, name, questionNum, finishQuestion }) => {
       }
       </div>
       <p className="flex flex__center grid__col-xs text__light text__medium">
-        <span>Category: { question.category }</span>
+        <span>{ question.category }</span>
         |
         <span className="text__upper">{ question.difficulty }</span>
       </p>
@@ -93,7 +93,7 @@ const Question = ({ game, question, name, questionNum, finishQuestion }) => {
       { 
         question.answers.map((answer, index) => (
             <label htmlFor={`${index} ${answer}`} key={answer} className={`trivia-answer btn btn__md ${getAnswerStatus(answer)}`} disabled={selectedAnswer}>
-              { answer }
+              { decode(answer) }
               <input type="radio" id={`${index} ${answer}`} value={answer} name="trivia-answer" onChange={(e) => handleSelectAnswer(e.target.value)} disabled={selectedAnswer}/>
             </label>
           )
